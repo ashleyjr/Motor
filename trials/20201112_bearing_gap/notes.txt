@@ -1,0 +1,13 @@
+ 
+ - Printed
+  
+   - Ender 5 Pro
+   - PLA
+   - 0.4mm nozzle
+   - 0.16 Layer Height
+   - 100% infill
+   - Position
+      -------------------------------------------0
+      |                                          |
+      |  |1000um|  |0750um|  |0500um|  |0250um|  |
+      |                                          |
