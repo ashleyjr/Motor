@@ -11,3 +11,10 @@
       |                                          |
       |  |1000um|  |0750um|  |0500um|  |0250um|  |
       |                                          |
+
+ - Outcome
+
+   - 1000um: The bearings just fell straight out
+   - 250um: Too tight, it did rotate but spins freely once before
+   - 500um: Spins well, makes sense as the nozzle resolution is 400um 
+   = 750um: Printed failed so did not bother testing
