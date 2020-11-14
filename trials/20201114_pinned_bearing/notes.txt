@@ -1,0 +1,15 @@
+
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.12 Layer Height (super quality)
+      - 100% infill
+      - No support material!!
+
+   - Questions
+
+      - There is 300um play around the pins and sightly more around the ball.
+        Is this too much? Rotor may rattle slightly but this is less than the nozzle resolution.
+        Tune gap if sticks/rattles 
