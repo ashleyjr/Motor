@@ -13,3 +13,13 @@
       - There is 300um play around the pins and sightly more around the ball.
         Is this too much? Rotor may rattle slightly but this is less than the nozzle resolution.
         Tune gap if sticks/rattles 
+
+   - Outcome
+
+      - 0.12 layer hight failed so switch to 0.2
+      - Small pins came dettached round the base
+      - Tried adding raft to adhesion - made it wrose
+      - tried retracting pins so support was put underneath - did not work
+      - Tried hollowing out bins so now criss/cross infill to upset pin base - did not work
+      - Ended up widening the pin so the resolutio could print
+      - When printed the pins could spin around in the bearing (updated model) still spins!

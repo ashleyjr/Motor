@@ -8,8 +8,8 @@ from FreeCAD import Base
 name = "Bearing"
 
 #Create new document
-#App.setActiveDocument(name)
-#App.closeDocument(name)
+App.setActiveDocument(name)
+App.closeDocument(name)
 App.newDocument(name)
 App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
@@ -17,16 +17,17 @@ Gui.ActiveDocument=Gui.getDocument(name)
 
 TH    = 10.0    # Thickness
 
-NPins = 18      # Number of pin bearings
-RPins = 2       # Radius of pins
-RBall = 3.0     # Radius of balls
+NPins = 10      # Number of pin bearings
+RPins = 4       # Radius of pins
+HPins = 2       # Radius of pin hollow
+RBall = 5.0     # Radius of balls
 R     = 17.5    # Radius of bearing arrangement
 
-RTR   = 15.2    # Radius of rotor
-RTRH  = 13      # Radius of hole in rotor
+RTR   = 13.2    # Radius of rotor
+RTRH  = 10      # Radius of hole in rotor
 
-HOR   = 22      # Radius of housing
-HORH  = 19.8    # Radius of hole in housing
+HOR   = 25      # Radius of housing
+HORH  = 21.8    # Radius of hole in housing
 
 # Pin bearings and guide cut out
 guide=Part.makeTorus(R,(RBall+GBall))
@@ -35,13 +36,21 @@ for i in range(NPins):
     a=(i*2*math.pi)/NPins
     x=R*math.cos(a)
     y=R*math.sin(a)
+
+    # Hollow
+    hollow=Part.makeCylinder(HPins,TH)
+    hollow.translate(Base.Vector(x,y,0))
+
     # Pins
     pin=Part.makeCylinder(RPins,TH)
     pin.translate(Base.Vector(x,y,0))
+    pin=pin.cut(hollow)
     Part.show(pin)
+
     # Balls
     ball=Part.makeSphere(RBall)
     ball.translate(Base.Vector(x,y,(TH/2)))
+    ball=ball.cut(hollow)
     Part.show(ball)
 
 # Rotor
