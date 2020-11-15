@@ -8,8 +8,8 @@ from FreeCAD import Base
 name = "Bearing"
 
 #Create new document
-#App.setActiveDocument(name)
-#App.closeDocument(name)
+App.setActiveDocument(name)
+App.closeDocument(name)
 App.newDocument(name)
 App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
@@ -18,21 +18,22 @@ Gui.ActiveDocument=Gui.getDocument(name)
 TH    = 10.0    # Thickness
 
 NPins = 10      # Number of pin bearings
-RPins = 3.8     # Radius of pins
+RPins = 3.2     # Radius of pins
 HPins = 2       # Radius of pin hollow
 RBall = 5.0     # Radius of balls
+GTorus= 0.2
 R     = 17.5    # Radius of bearing arrangement
 
-RTR   = 13.2    # Radius of rotor
+RTR   = 14.1    # Radius of rotor
 RTRH  = 10      # Radius of hole in rotor
 
 HOR   = 25      # Radius of housing
-HORH  = 21.8    # Radius of hole in housing
+HORH  = 20.9    # Radius of hole in housing
 
 # Pin bearings and guide cut out
-guide1=Part.makeTorus(R,(RBall+GBall))
+guide1=Part.makeTorus(R,(RBall+GTorus))
 guide1.translate(Base.Vector(0,0,TH))
-guide2=Part.makeTorus(R,(RBall+GBall))
+guide2=Part.makeTorus(R,(RBall+GTorus))
 guide2.translate(Base.Vector(0,0,0))
 for i in range(NPins):
     a=(i*2*math.pi)/NPins
