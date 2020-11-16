@@ -21,14 +21,14 @@ NPins = 10      # Number of pin bearings
 RPins = 3.2     # Radius of pins
 HPins = 2       # Radius of pin hollow
 RBall = 5.0     # Radius of balls
-GTorus= 0.2
+GTorus= 0.4
 R     = 17.5    # Radius of bearing arrangement
 
-RTR   = 14.1    # Radius of rotor
+RTR   = 13.9    # Radius of rotor
 RTRH  = 10      # Radius of hole in rotor
 
 HOR   = 25      # Radius of housing
-HORH  = 20.9    # Radius of hole in housing
+HORH  = 21.1    # Radius of hole in housing
 
 # Pin bearings and guide cut out
 guide1=Part.makeTorus(R,(RBall+GTorus))

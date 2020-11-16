@@ -15,3 +15,4 @@
       - Bearings fell out on first turn, print was ok but too loose
       - Updated print reducing gap between bearings and rotor/house to 200um and also the diamter of the 
         pins to further lock in the cups
+      - Gap too tight for rotation, increse to 400um
