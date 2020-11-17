@@ -16,3 +16,10 @@
 
    - Outcome
 
+      - Rollers fell straight out - reduced gaps to 200um
+      - Rollers tighter but still fell out 
+         - Reduced torus around pin to leave a lip at the top/bottom
+         - Increased gap to 300um
+      - Much but but popped out while spinning
+         - Keep gap at 300um 
+         - Increase the lip

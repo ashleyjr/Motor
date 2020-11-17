@@ -8,8 +8,8 @@ from FreeCAD import Base
 name = "Bearing"
 
 #Create new document
-#App.setActiveDocument(name)
-#App.closeDocument(name)
+App.setActiveDocument(name)
+App.closeDocument(name)
 App.newDocument(name)
 App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
@@ -19,11 +19,11 @@ TH    = 10.0    # Thickness
 R     = 18      # Radius of bearing
 
 NPins = 10      # Number of pin bearings
-RPins = 5.4     # Radius of pins
+RPins = 5.5     # Radius of pins
 CPins = 4       # Radius of pin cut out
 
-RT    = 8
-CT    = 6
+RT    = 7.8
+CT    = 4.6
 
 RTR   = 12.2    # Radius of rotor
 RTRH  = 11.2     # Radius of hole in rotor
@@ -56,7 +56,7 @@ rotor_hole= Part.makeCylinder(RTRH,TH)
 rotor     = rotor.cut(rotor_hole)
 Part.show(rotor)
 # Rotor Runner
-rotor_r  = Part.makeTorus(RTR-2.2, CT-0.4)
+rotor_r  = Part.makeTorus(RTR-2, CT-0.3)
 rotor_r.translate(Base.Vector(0,0,TH/2))
 rotor_hole= Part.makeCylinder(RTRH,2*TH)
 rotor_hole.translate(Base.Vector(0,0,-TH/2))
@@ -75,7 +75,7 @@ house_hole= Part.makeCylinder(HORH,TH)
 house     = house.cut(house_hole)
 Part.show(house)
 # Housing Runner
-house_r  = Part.makeTorus(HORH+2.2, CT-0.4)
+house_r  = Part.makeTorus(HORH+2, CT-0.3)
 house_r.translate(Base.Vector(0,0,TH/2))
 house_r=house_r.cut(top)
 house_r=house_r.cut(bot)
