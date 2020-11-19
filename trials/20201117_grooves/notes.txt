@@ -1,0 +1,15 @@
+
+-
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.12 Layer Height (super quality)
+      - 100% infill
+      - No support material!!
+      - No adhesion, just skirt
+ 
+   - Outcome
+
+      - Rolls ok, smooth print surface
