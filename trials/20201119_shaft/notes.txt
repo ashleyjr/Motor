@@ -1,0 +1,14 @@
+
+-
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.2 Layer Height (standard)
+      - 100% infill
+ 
+   - Outcome
+
+      - Printed too difficult to detach from support
+      - star key worked well
