@@ -11,3 +11,6 @@
  
    - Outcome
 
+      - Lock section prints nicely
+      - With no support began to wibble at just over half way
+      - Change to have support from 10deg overhang but only touching buildplate
