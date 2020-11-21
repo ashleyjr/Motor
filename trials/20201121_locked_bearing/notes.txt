@@ -14,4 +14,7 @@
       - Position on bed
       -   O       O      O
       -   100um   200um  300um
-      
+     
+      - Not chance of getting 100 or 200 on with current print of sine shaft lock
+      - 300 goes on with a tight fit, very nice
+      - Could put in a small channel for glue
