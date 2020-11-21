@@ -1,0 +1,17 @@
+
+-
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.12 Layer Height (super)
+      - 100% infill
+      - No support 
+ 
+   - Outcome
+
+      - Position on bed
+      -   O       O      O
+      -   100um   200um  300um
+      
