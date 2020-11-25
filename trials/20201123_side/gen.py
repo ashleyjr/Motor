@@ -116,6 +116,43 @@ for i in range(Nballs):
     ball.translate(Base.Vector(x,y,TH/2))
     Part.show(ball)
 
+############################################################
+# Fillet section
+
+fillet_centre_rad     = 26.5
+fillet_len            = 10
+fillet_cut_rad        = 5
+fillet_centre_cut_rad = 30
+
+fillet_pad=Part.makeBox(fillet_len, fillet_len, TH)
+fillet_pad.translate(Base.Vector(-(fillet_len/2),-(fillet_len/2),0))
+fillet_pad.translate(Base.Vector(fillet_centre_rad,0,0))
+
+
+fs=[]
+for i in [22,338,98,142,218,262]:
+    fillet=fillet_pad.copy()
+    fillet.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
+    fs.append(fillet)
+f=Part.makeCompound(fs)
+
+fillet_cut_rad        = 11.75
+fillet_centre_cut_rad = 35
+
+fillet_cut=Part.makeCylinder(fillet_cut_rad, TH)
+fillet_cut.translate(Base.Vector(fillet_centre_cut_rad,0,0))
+for i in [32,328,88,152,208,272]:
+    cut=fillet_cut.copy()
+    cut.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
+    f=f.cut(cut)
+
+
+Part.show(f)
+
+
+
+
+
 
 
 
