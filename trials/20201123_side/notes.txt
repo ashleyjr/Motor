@@ -10,3 +10,13 @@
  
    - Outcome
 
+      - Printed 0.12 at edge of bed but stared to lift away from the heated centre
+      - Moved to middle of bed and 0.2 layer height (still 100% infill)
+
+         - And change from Green (stringy) to black
+
+      - Moved to 80 deg bed and printed wihtout lifting
+
+         - Add fillets to edges
+         - Make gaps bigger for stars
+         - Make holes to save on print time
