@@ -45,8 +45,8 @@ star=star.extrude(Base.Vector(0,0,TH))
 # Create tri plate
 
 tri_rad      = 60
-tri_end_rad  = 11
-tri_int_rad  = 21
+tri_end_rad  = 7
+tri_int_rad  = 20.5
 
 # Create a prong
 prong=Part.makeBox(tri_rad-tri_int_rad,2*tri_end_rad,TH)
@@ -69,7 +69,7 @@ tri=Part.makeCompound(prs)
 
 
 # Centre bearing housing
-bearing_rad=25
+bearing_rad=23.5
 bearing=Part.makeCylinder(bearing_rad, TH)
 tri=Part.makeCompound([tri,bearing])
 
@@ -83,10 +83,25 @@ cut_t.translate(Base.Vector(0,0,rball))
 
 tri=tri.cut(cut_t)
 
+############################################################
+# Punch holes from the prongs
+
+punch_length = 27
+punch_width  = 9
+punch_rad    = 25
+
+punch=Part.makeBox(punch_length,punch_width,TH)
+punch.translate(Base.Vector(punch_rad,-(punch_width/2),0))
+
+# Create 3
+prs=[]
+for i in [0,120,240]:
+    punch_inst=punch.copy()
+    punch_inst.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
+    tri=tri.cut(punch_inst)
 
 # Cut out the centre star
 tri=tri.cut(star)
-
 Part.show(tri)
 
 ############################################################
@@ -100,6 +115,8 @@ for i in range(Nballs):
     y=centre_rad*math.sin(a)
     ball.translate(Base.Vector(x,y,TH/2))
     Part.show(ball)
+
+
 
 
 
