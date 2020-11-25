@@ -19,7 +19,7 @@ TH          = 10.0    # Thickness
 
 ############################################################
 # Star shapes to cut out
-star_gap = 0.3
+star_gap = 0.4
 r_out = 5 + star_gap
 r_in  = 4 + star_gap
 P     = 40
