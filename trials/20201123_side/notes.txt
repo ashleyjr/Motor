@@ -20,3 +20,5 @@
          - Add fillets to edges
          - Make gaps bigger for stars
          - Make holes to save on print time
+         - Printed 2 at 0.16, 100% with 80deg bed
+   

@@ -10,4 +10,5 @@
  
    - Outcome
 
-   
+      - Good print
+      - The lift works well and fits inside the side correctly
