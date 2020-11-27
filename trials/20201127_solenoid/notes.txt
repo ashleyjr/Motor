@@ -1,0 +1,17 @@
+
+-
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.12 Layer Height (high
+      - 100% infill 
+ 
+   - Outcome
+
+      - Good radius (2mm internal)
+      - Goot wall thickness with 2 layers (0.8mm)
+      - Lip crimbled so add in fillet
+      - Notch for hooking wire
+      - Some wat to wind 
