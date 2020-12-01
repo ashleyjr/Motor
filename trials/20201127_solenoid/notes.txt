@@ -14,4 +14,9 @@
       - Goot wall thickness with 2 layers (0.8mm)
       - Lip crimbled so add in fillet
       - Notch for hooking wire
-      - Some wat to wind 
+      - Some thing to wide
+
+      - Prints well no, overhan gon the top is a bit steep so could bring that in
+      - Will take  lot of wire to built up enough coil.
+
+      - The rods are wider so open up internal radius and drop the grip as it will no fit in the drill

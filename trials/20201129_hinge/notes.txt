@@ -1,0 +1,15 @@
+
+-
+   - Printed
+ 
+      - Ender 5 Pro
+      - PLA
+      - 0.4mm nozzle
+      - 0.12 Layer Height (high
+      - 100% infill
+      - No support
+ 
+   - Outcome
+
+      - Great print, hinges fine and the overhang is ok
+      - Internal radius is too small for expected plunger so change to 5mm radius and try again 

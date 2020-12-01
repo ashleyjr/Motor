@@ -15,25 +15,52 @@ App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
 Gui.ActiveDocument=Gui.getDocument(name)
 
-length      = 50
-int_rad     = 2
-ext_rad     = 2.8
-disc_rad    = 5
-disc_length = 4
+length      = 30
+int_rad     = 5.2
+ext_rad     = 6
+disc_rad    = 12
+disc_length = 10
 
 int_shaft=Part.makeCylinder(int_rad,length)
 ext_shaft=Part.makeCylinder(ext_rad,length)
 shaft=ext_shaft.cut(int_shaft)
+shaft.translate(Base.Vector(0,0,1))
+
 
 disc_top=Part.makeCylinder(disc_rad,disc_length)
 disc_top=disc_top.cut(int_shaft)
 disc_bot=disc_top.copy()
 disc_bot.translate(Base.Vector(0,0,length))
 
+
 solenoid=Part.makeCompound([disc_bot,shaft,disc_top])
 
+# Cut internal
 int_shaft=Part.makeCylinder(int_rad,length)
 solenoid=solenoid.cut(int_shaft)
+
+# Cut fillet for discs
+t_rad = disc_rad - ext_rad
+fillet=Part.makeTorus(disc_rad,t_rad)
+
+fillet.translate(Base.Vector(0,0,disc_length))
+solenoid=solenoid.cut(fillet)
+
+fillet.translate(Base.Vector(0,0,length-disc_length))
+solenoid=solenoid.cut(fillet)
+
+# Cut slots
+slot_width=1
+slot_offset=8
+slot=Part.makeBox(disc_rad,slot_width,disc_length)
+slot.translate(Base.Vector(slot_offset,-slot_width/2,0))
+for i in [10,350,170,190]:
+    slot_inst=slot.copy()
+    slot_inst.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
+    solenoid=solenoid.cut(slot_inst)
+
+
+
 
 Part.show(solenoid)
 
