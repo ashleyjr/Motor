@@ -19,7 +19,7 @@ Gui.ActiveDocument=Gui.getDocument(name)
 
 # Shaft holder
 shaft_ext_rad = 7
-shaft_int_rad = 5.2
+shaft_int_rad = 5.6
 shaft_len     = 14
 shaft_ext=Part.makeCylinder(shaft_ext_rad,shaft_len)
 shaft_int=Part.makeCylinder(shaft_int_rad,shaft_len)
@@ -27,7 +27,7 @@ shaft=shaft_ext.cut(shaft_int)
 
 # Shaft holder fins
 sfins_cut_len = shaft_len / 5
-sfins_cut_x   = 9.2
+sfins_cut_x   = 9.6
 sfins_y       = 9
 sfins_x       = 11
 sfins=Part.makeBox(sfins_x,sfins_y,shaft_len)
@@ -45,7 +45,7 @@ pin=Part.makeCylinder(pin_rad,shaft_len)
 pin.translate(Base.Vector(pin_pos,0,0))
 
 # Piston holder fins
-pfins_cut_len = 3.1
+pfins_cut_len = 3.6
 pfins_cut_x   = 10
 pfins_y       = 8
 pfins_x       = 10
@@ -56,17 +56,18 @@ pfins=Part.makeBox(pfins_x,pfins_y,shaft_len)
 pfins.translate(Base.Vector(pfins_pos_x,-(pfins_y/2),0))
 
 pfins_cut=Part.makeBox(pfins_cut_x,pfins_y,pfins_cut_len)
+pfins_cut.translate(Base.Vector(pfins_pos_x,-(pfins_y/2),0))
 
 pfins_cut_1=pfins_cut.copy()
-pfins_cut_1.translate(Base.Vector(pfins_pos_x,-(pfins_y/2),0))
+pfins_cut_1.translate(Base.Vector(0,0,-0.3))
 pfins=pfins.cut(pfins_cut_1)
 
-pfins_cut_2=pfins_cut_1.copy()
+pfins_cut_2=pfins_cut.copy()
 pfins_cut_2.translate(Base.Vector(0,0,(shaft_len/2)-(pfins_cut_len/2)))
 pfins=pfins.cut(pfins_cut_2)
 
-pfins_cut_3=pfins_cut_1.copy()
-pfins_cut_3.translate(Base.Vector(0,0,shaft_len-pfins_cut_len))
+pfins_cut_3=pfins_cut.copy()
+pfins_cut_3.translate(Base.Vector(0,0,shaft_len-pfins_cut_len+0.3))
 pfins=pfins.cut(pfins_cut_3)
 
 ppin=Part.makeCylinder(pfins_rad,shaft_len)

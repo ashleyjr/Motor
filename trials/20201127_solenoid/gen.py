@@ -16,7 +16,7 @@ App.ActiveDocument=App.getDocument(name)
 Gui.ActiveDocument=Gui.getDocument(name)
 
 length      = 30
-int_rad     = 5.2
+int_rad     = 5.6
 ext_rad     = 6
 disc_rad    = 12
 disc_length = 10
