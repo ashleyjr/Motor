@@ -8,8 +8,8 @@ from FreeCAD import Base
 name = "crank"
 
 #Create new document
-App.setActiveDocument(name)
-App.closeDocument(name)
+#App.setActiveDocument(name)
+#App.closeDocument(name)
 App.newDocument(name)
 App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
@@ -18,7 +18,7 @@ Gui.ActiveDocument=Gui.getDocument(name)
 ss=[]
 
 # The main shaft
-length=14
+length=20
 shaft_rad=5
 shaft=Part.makeCylinder(shaft_rad,length)
 ss.append(shaft)
