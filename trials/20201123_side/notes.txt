@@ -21,4 +21,8 @@
          - Make gaps bigger for stars
          - Make holes to save on print time
          - Printed 2 at 0.16, 100% with 80deg bed
-   
+
+      - Increased gap 
+         
+         - Try printy at 0.12
+         - Also curved punches

@@ -74,7 +74,7 @@ bearing=Part.makeCylinder(bearing_rad, TH)
 tri=Part.makeCompound([tri,bearing])
 
 # Cut out centre bearing
-gap=0.4
+gap=0.5
 rball=TH/2
 centre_rad=15
 
@@ -86,11 +86,21 @@ tri=tri.cut(cut_t)
 ############################################################
 # Punch holes from the prongs
 
-punch_length = 27
-punch_width  = 9
-punch_rad    = 25
+punch_length        = 35.5
+punch_width         = 10
+punch_rad           = 23
+punch_end_offset    = 3
+punch_end_rad       = 9
+punch_start_offset  = 15
+punch_start_rad     = 16
 
 punch=Part.makeBox(punch_length,punch_width,TH)
+punch_end=Part.makeCylinder(punch_end_rad, TH)
+punch_end.translate(Base.Vector(punch_length+punch_end_offset,(punch_width/2),0))
+punch=punch.cut(punch_end)
+punch_start=Part.makeCylinder(punch_start_rad, TH)
+punch_start.translate(Base.Vector(-punch_start_offset,(punch_width/2),0))
+punch=punch.cut(punch_start)
 punch.translate(Base.Vector(punch_rad,-(punch_width/2),0))
 
 # Create 3
@@ -145,6 +155,11 @@ for i in [32,328,88,152,208,272]:
     cut=fillet_cut.copy()
     cut.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
     f=f.cut(cut)
+
+for i in [0,120,240]:
+    punch_inst=punch.copy()
+    punch_inst.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
+    f=f.cut(punch_inst)
 
 
 Part.show(f)
