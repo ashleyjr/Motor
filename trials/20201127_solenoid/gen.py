@@ -15,9 +15,9 @@ App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
 Gui.ActiveDocument=Gui.getDocument(name)
 
-length      = 30
+length      = 20
 int_rad     = 2
-ext_rad     = 3.2
+ext_rad     = 2.8
 disc_rad    = 8
 disc_length = 6
 
@@ -60,9 +60,10 @@ for i in [10,350,170,190]:
     solenoid=solenoid.cut(slot_inst)
 
 # Drill grip
-grip_size = 5
-grip = Part.makeBox(grip_size,grip_size,grip_size)
-grip.translate(Base.Vector(-grip_size/2,-grip_size/2,0))
+grip_length = 8
+grip_width  = 6
+grip = Part.makeBox(grip_width,grip_width,grip_length)
+grip.translate(Base.Vector(-grip_width/2,-grip_width/2,0))
 grip=grip.cut(int_shaft)
 grip.translate(Base.Vector(0,0,length+disc_length))
 solenoid=Part.makeCompound([solenoid,grip])
