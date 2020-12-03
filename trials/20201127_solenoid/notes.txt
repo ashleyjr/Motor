@@ -20,3 +20,22 @@
       - Will take  lot of wire to built up enough coil.
 
       - The rods are wider so open up internal radius and drop the grip as it will no fit in the drill
+
+      - Wire test with 0.7mm copper wires
+
+         Test 1: 
+            - 32.07V @ ~140mA
+            - Therefore 230 ohms of wire 
+            - Start to increase as it heat ups
+            - FORCE: Small amount, enough to move the rod but not the piston
+
+         Test 2:
+            - 32.07V @ ~500mA
+            - Therefore 64 ohms of wire 
+            - Start to increase as it heat ups
+            - FORCE: Larger than test 1 but still small
+
+         Test 3:
+            - A shorter piece of wire compacted in to one edge
+            - No force at all
+

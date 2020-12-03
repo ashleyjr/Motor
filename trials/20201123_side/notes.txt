@@ -26,3 +26,6 @@
          
          - Try printy at 0.12
          - Also curved punches
+
+      - Bearings dettached at 0.12 trying again at 0.16
+      - Bearing still dettached so must be bearing gap
