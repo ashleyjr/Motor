@@ -19,14 +19,14 @@ Gui.ActiveDocument=Gui.getDocument(name)
 
 ############################################################
 # Solenoid bucket
-sb_length     = 30
-sb_ext_rad    = 10
-sb_int_rad    = 9
-sb_base_depth = 1
+sb_length     = 26
+sb_ext_rad    = 8.5
+sb_int_rad    = 6.4
+sb_base_depth = 2
 sb_hole_rad   = 1.5
-sb_hole_pairs = 8
-sb_hole_z     = 5
-sb_bot_rad    = 7
+sb_hole_pairs = 4
+sb_hole_z     = 2.9
+sb_bot_rad    = 5.5
 
 sb_ext=Part.makeCylinder(sb_ext_rad, sb_length)
 sb_int=Part.makeCylinder(sb_int_rad, sb_length-sb_base_depth)
@@ -37,12 +37,21 @@ holes=Part.makeCylinder(sb_hole_rad, (sb_ext_rad*2))
 holes.translate(Base.Vector(0,0,(-sb_ext_rad)))
 holes.rotate(Base.Vector(0, 0, 0),Base.Vector(1, 0, 0), 90)
 
-holes.translate(Base.Vector(0,0,sb_base_depth))
-for i in range(int(sb_length/sb_hole_z)):
+holes.translate(Base.Vector(0,0,0.6))
+for i in range(4):
     holes.translate(Base.Vector(0,0,sb_hole_z))
-    for j in range(sb_hole_pairs):
-        sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), (180*j)/sb_hole_pairs)
-        sb = sb.cut(holes)
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),-20)
+    sb = sb.cut(holes)
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),40)
+    sb = sb.cut(holes)
+    holes.translate(Base.Vector(0,0,sb_hole_z))
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),-20)
+    sb = sb.cut(holes)
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),-40)
+    sb = sb.cut(holes)
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),80)
+    sb = sb.cut(holes)
+    sb.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1),-40)
 
 
 sb_bot=Part.makeCylinder(sb_bot_rad, sb_base_depth)
@@ -64,11 +73,11 @@ Part.show(sb_r)
 ############################################################
 # Bridge between
 
-br_depth  = 15
+br_depth  = 20
 br_length = sb_sep - (sb_int_rad*2)
-br_width  = 5
+br_width  = 8
 br_rad    = br_length / 2
-br_arch_z = 12
+br_arch_z = 5
 
 bridge= Part.makeBox(br_length, br_width, br_depth)
 bridge.translate(Base.Vector(sb_int_rad,-(br_width/2),sb_length-br_depth))
@@ -82,11 +91,11 @@ Part.show(bridge)
 ############################################################
 # Left end
 
-l_depth  = 15
+l_depth  = 20
 l_length = 20
-l_width  = 5
+l_width  = 8
 l_rad    = 30
-l_arch_z = -5
+l_arch_z = -10
 l_centre = -30
 left= Part.makeBox(l_length, l_width, l_depth)
 left.translate(Base.Vector(-sb_int_rad-l_length,-(br_width/2),sb_length-l_depth))
@@ -103,11 +112,11 @@ Part.show(left)
 ############################################################
 # Right end
 
-r_depth  = 15
+r_depth  = 20
 r_length = 20
-r_width  = 5
+r_width  = 8
 r_rad    = 30
-r_arch_z = -5
+r_arch_z = -10
 r_centre = 70
 
 right= Part.makeBox(r_length, r_width, r_depth)

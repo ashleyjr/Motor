@@ -18,8 +18,8 @@ Gui.ActiveDocument=Gui.getDocument(name)
 length      = 20
 int_rad     = 2
 ext_rad     = 2.8
-disc_rad    = 8
-disc_length = 6
+disc_rad    = 6
+disc_length = 4
 
 int_shaft=Part.makeCylinder(int_rad,length)
 ext_shaft=Part.makeCylinder(ext_rad,length)
@@ -51,10 +51,10 @@ solenoid=solenoid.cut(fillet)
 
 # Cut slots
 slot_width=1
-slot_offset=6
+slot_offset=4
 slot=Part.makeBox(disc_rad,slot_width,2*length)
 slot.translate(Base.Vector(slot_offset,-slot_width/2,0))
-for i in [10,350,170,190]:
+for i in [20,340,160,200]:
     slot_inst=slot.copy()
     slot_inst.rotate(Base.Vector(0, 0, 0),Base.Vector(0, 0, 1), i)
     solenoid=solenoid.cut(slot_inst)
