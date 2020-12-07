@@ -39,3 +39,5 @@
             - A shorter piece of wire compacted in to one edge
             - No force at all
 
+      - Reprint with extensions to lock in to top shaft
+

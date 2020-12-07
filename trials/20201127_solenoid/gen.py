@@ -15,7 +15,7 @@ App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
 Gui.ActiveDocument=Gui.getDocument(name)
 
-length      = 20
+length      = 22
 int_rad     = 2
 ext_rad     = 2.8
 disc_rad    = 6
@@ -52,7 +52,7 @@ solenoid=solenoid.cut(fillet)
 # Cut slots
 slot_width=1
 slot_offset=4
-slot=Part.makeBox(disc_rad,slot_width,2*length)
+slot=Part.makeBox(disc_rad,slot_width,length)
 slot.translate(Base.Vector(slot_offset,-slot_width/2,0))
 for i in [20,340,160,200]:
     slot_inst=slot.copy()
@@ -68,7 +68,13 @@ grip=grip.cut(int_shaft)
 grip.translate(Base.Vector(0,0,length+disc_length))
 solenoid=Part.makeCompound([solenoid,grip])
 
-
+# Cut edges
+edge_size = disc_rad * 2
+edge = Part.makeBox(edge_size,edge_size,edge_size)
+edge.translate(Base.Vector(3,-edge_size/2,length))
+solenoid=solenoid.cut(edge)
+edge.translate(Base.Vector(-6-edge_size,0,0))
+solenoid=solenoid.cut(edge)
 
 
 
