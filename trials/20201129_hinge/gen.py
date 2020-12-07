@@ -25,6 +25,14 @@ shaft_ext=Part.makeCylinder(shaft_ext_rad,shaft_len)
 shaft_int=Part.makeCylinder(shaft_int_rad,shaft_len)
 shaft=shaft_ext.cut(shaft_int)
 
+# Shaft holder cut
+shaft_cut_rad = 6
+shaft_cut=Part.makeCylinder(shaft_cut_rad,2*shaft_ext_rad)
+shaft_cut.rotate(Base.Vector(0, 0, 0),Base.Vector(1,0, 0), 90)
+shaft_cut.translate(Base.Vector(-shaft_ext_rad,shaft_ext_rad,shaft_len/2))
+shaft=shaft.cut(shaft_cut)
+
+
 # Shaft holder fins
 sfins_cut_len = shaft_len / 5
 sfins_cut_x   = 9.6
@@ -37,6 +45,7 @@ sfins_cut.translate(Base.Vector(shaft_int_rad+sfins_x-sfins_cut_x,-(sfins_y/2),s
 sfins=sfins.cut(sfins_cut)
 sfins_cut.translate(Base.Vector(0,0,2*sfins_cut_len))
 sfins=sfins.cut(sfins_cut)
+
 
 # Pin
 pin_rad = 2
@@ -94,7 +103,7 @@ sfins=sfins.cut(shalf)
 
 # Piston holder
 piston_ext_rad = 7
-piston_int_rad = 5.2
+piston_int_rad = 1.9
 piston_len     = 10
 piston_base_len = 2
 piston_gap = 1.5

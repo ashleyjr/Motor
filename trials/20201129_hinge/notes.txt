@@ -15,3 +15,7 @@
       - Internal radius is too small for expected plunger so change to 5mm radius and try again
       - Prints well no in smaller size
          - Key to have about 3 layer between piston fins and shaft fins to the hinge does not get stuck
+      
+      - Tight piston end - could be tighter
+      - Cut half cylinder out of front - could be smaller
+
