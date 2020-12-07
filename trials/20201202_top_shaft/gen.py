@@ -19,7 +19,7 @@ Gui.ActiveDocument=Gui.getDocument(name)
 
 ############################################################
 # Solenoid bucket
-sb_length     = 26
+sb_length     = 30
 sb_ext_rad    = 8.5
 sb_int_rad    = 6.4
 sb_base_depth = 2
@@ -60,7 +60,7 @@ sb=sb.cut(sb_bot)
 ############################################################
 # Two baskets
 
-sb_sep = 40
+sb_sep = 48
 
 sb_l=sb.copy()
 sb_r=sb.copy()
@@ -95,7 +95,7 @@ l_depth  = 20
 l_length = 20
 l_width  = 8
 l_rad    = 30
-l_arch_z = -10
+l_arch_z = -5
 l_centre = -30
 left= Part.makeBox(l_length, l_width, l_depth)
 left.translate(Base.Vector(-sb_int_rad-l_length,-(br_width/2),sb_length-l_depth))
@@ -116,8 +116,8 @@ r_depth  = 20
 r_length = 20
 r_width  = 8
 r_rad    = 30
-r_arch_z = -10
-r_centre = 70
+r_arch_z = -5
+r_centre = 78
 
 right= Part.makeBox(r_length, r_width, r_depth)
 right.translate(Base.Vector(sb_sep+sb_int_rad,-(br_width/2),sb_length-r_depth))
@@ -130,6 +130,40 @@ right=right.cut(r_arch)
 Part.show(right)
 
 
+############################################################
+# Top holders
 
+
+holder_x = 20
+holder_y = 3
+holder_z = 2
+
+holder_ext_cut=Part.makeCylinder(2*sb_ext_rad, 2*sb_length)
+holder_int_cut=Part.makeCylinder(sb_ext_rad, 2*sb_length)
+holder_cut = holder_ext_cut.cut(holder_int_cut)
+
+
+right_back= Part.makeBox(holder_x, holder_y, holder_z)
+right_back.translate(Base.Vector(-holder_x/2,5.5,sb_length-holder_z))
+right_back = right_back.cut(holder_cut)
+Part.show(right_back)
+
+right_front= Part.makeBox(holder_x, holder_y, holder_z)
+right_front.translate(Base.Vector(-holder_x/2,-8.5,sb_length-holder_z))
+right_front = right_front.cut(holder_cut)
+Part.show(right_front)
+
+holder_cut.translate(Base.Vector(sb_sep,0,0))
+
+left_back= Part.makeBox(holder_x, holder_y, holder_z)
+left_back.translate(Base.Vector(sb_sep+(-holder_x/2),5.5,sb_length-holder_z))
+left_back = left_back.cut(holder_cut)
+Part.show(left_back)
+
+
+left_front= Part.makeBox(holder_x, holder_y, holder_z)
+left_front.translate(Base.Vector(sb_sep+(-holder_x/2),-8.5,sb_length-holder_z))
+left_front = left_front.cut(holder_cut)
+Part.show(left_front)
 
 
