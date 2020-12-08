@@ -8,8 +8,8 @@ from FreeCAD import Base
 name = "sine_shaft"
 
 #Create new document
-#App.setActiveDocument(name)
-#App.closeDocument(name)
+App.setActiveDocument(name)
+App.closeDocument(name)
 App.newDocument(name)
 App.setActiveDocument(name)
 App.ActiveDocument=App.getDocument(name)
@@ -42,7 +42,7 @@ off2_pos = -7
 
 # Create a star shaped base by interleaving
 # two cicles at different radius
-lock_length=10
+lock_length=20
 ps    = []
 for i in range(0,P,2):
     a_out = (i*2*math.pi)/P
@@ -66,6 +66,17 @@ star2=star.copy()
 star2.translate(Base.Vector(0,0,length))
 ss.append(star1)
 ss.append(star2)
+
+# Create a disc to lift off bed
+lift_rad    = 4
+lift_length = 1
+lift=Part.makeCylinder(lift_rad,lift_length)
+lift_bot=lift.copy()
+lift_bot.translate(Base.Vector(0,0,-lift_length-lock_length))
+ss.append(lift_bot)
+lift_top=lift.copy()
+lift_top.translate(Base.Vector(0,0,length+lock_length))
+ss.append(lift_top)
 
 shaft=Part.makeCompound(ss)
 Part.show(shaft)
