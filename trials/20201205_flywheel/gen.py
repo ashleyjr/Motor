@@ -17,8 +17,8 @@ Gui.ActiveDocument=Gui.getDocument(name)
 
 # Main wheel
 wheel_depth   = 12
-ext_wheel_rad = 25
-int_wheel_rad = 20
+ext_wheel_rad = 35
+int_wheel_rad = 30
 
 ext_wheel=Part.makeCylinder(ext_wheel_rad, wheel_depth)
 int_wheel=Part.makeCylinder(int_wheel_rad, wheel_depth)
@@ -64,8 +64,8 @@ y = r_out*math.sin(0)
 ps.append(Base.Vector(x, y, 0))
 star=Part.makePolygon(ps)
 star=Part.Face(star)
-star=star.extrude(Base.Vector(0,0,wheel_depth+stick_depth))
-
+star=star.extrude(Base.Vector(0,0,stick_depth))
+star.translate(Base.Vector(0,0,prong_depth))
 
 # Cut out star
 wheel=wheel.cut(star)
