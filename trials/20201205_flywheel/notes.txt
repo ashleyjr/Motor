@@ -1,0 +1,4 @@
+
+To print use 0.2 with 50 infill 60C bed heat.
+
+This stops the part lifting at the edges.
